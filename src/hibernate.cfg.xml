@@ -9,5 +9,7 @@
     <property name="hibernate.connection.password">postgre</property>
     <mapping class="medicamento.bean.MedicamentoBean"/>
     <mapping class="usuario.bean.UsuarioBean"/>
+    <mapping class="fornecedor.bean.FornecedorBean"/>
+    <mapping class="telefone.bean.TelefoneBean"/>
   </session-factory>
 </hibernate-configuration>
