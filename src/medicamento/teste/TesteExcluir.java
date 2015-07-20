@@ -15,14 +15,14 @@ import util.DaoException;
  *
  * @author pierre
  */
-public class TesteExclusao {
+public class TesteExcluir {
     public static void main(String[] args) {
         MedicamentoDao pd = new MedicamentoDao();
         
         try {
             pd.excluir(1);
         } catch (DaoException ex) {
-            Logger.getLogger(TesteExclusao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TesteExcluir.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

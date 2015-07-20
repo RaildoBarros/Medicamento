@@ -7,9 +7,9 @@ import javax.swing.JOptionPane;
 import medicamento.bean.MedicamentoBean;
 import medicamento.dao.MedicamentoDao;
 import medicamento.dao.MedicamentoDaoImpl;
-import medicamento.teste.TesteAlteracao;
-import medicamento.teste.TesteExclusao;
-import medicamento.teste.TesteInsercao;
+import medicamento.teste.TesteAlterar;
+import medicamento.teste.TesteExcluir;
+import medicamento.teste.TesteInserir;
 import medicamento.teste.TesteSelecionar;
 import util.DaoException;
 
@@ -390,7 +390,7 @@ public class JFCadastroMedicamentos extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Medicamento excluído com sucesso!", "Mensagem", JOptionPane.INFORMATION_MESSAGE);
         } catch (DaoException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao excluir medicamento!", "Mensagem", JOptionPane.INFORMATION_MESSAGE);
-            Logger.getLogger(TesteExclusao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TesteExcluir.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btExcluirActionPerformed
 
@@ -530,7 +530,7 @@ public class JFCadastroMedicamentos extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Medicamento cadastrado com sucesso!", "Mensagem", JOptionPane.INFORMATION_MESSAGE);
         } catch (DaoException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao cadastrar medicamento!", "Mensagem", JOptionPane.INFORMATION_MESSAGE);
-            Logger.getLogger(TesteInsercao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TesteInserir.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -555,7 +555,7 @@ public class JFCadastroMedicamentos extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Medicamento alterado com sucesso!", "Mensagem", JOptionPane.INFORMATION_MESSAGE);
         } catch (DaoException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao alterar medicamento!", "Mensagem", JOptionPane.INFORMATION_MESSAGE);
-            Logger.getLogger(TesteAlteracao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TesteAlterar.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     

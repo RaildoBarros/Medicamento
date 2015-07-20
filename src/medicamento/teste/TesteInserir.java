@@ -11,7 +11,7 @@ import util.DaoException;
  *
  * @author Raildo
  */
-public class TesteInsercao {
+public class TesteInserir {
     public static void main(String[] args) {
         MedicamentoBean medicamento = new MedicamentoBean();
         
@@ -30,7 +30,7 @@ public class TesteInsercao {
         try {
             md.inserir(medicamento);
         } catch (DaoException ex) {
-            Logger.getLogger(TesteInsercao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TesteInserir.class.getName()).log(Level.SEVERE, null, ex);
         }
                  
     }

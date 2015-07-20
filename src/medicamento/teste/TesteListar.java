@@ -18,7 +18,7 @@ import util.DaoException;
  *
  * @author pierre
  */
-public class TesteListagem {
+public class TesteListar {
     public static void main(String[] args) {
         MedicamentoDao pd = new MedicamentoDao();
                 
@@ -38,7 +38,7 @@ public class TesteListagem {
                 System.out.println("------------------");
             }
         } catch (DaoException ex) {
-            Logger.getLogger(TesteListagem.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TesteListar.class.getName()).log(Level.SEVERE, null, ex);
         }
     }   
 }
