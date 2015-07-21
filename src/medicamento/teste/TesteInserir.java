@@ -15,7 +15,7 @@ public class TesteInserir {
     public static void main(String[] args) {
         MedicamentoBean medicamento = new MedicamentoBean();
         
-        medicamento.setNome("Hemogenin");
+        medicamento.setNome("Remédio");
         medicamento.setFormaFarmaceutica("Comprimidos");
         medicamento.setMarca("Aventis");
         medicamento.setDataValidade(Calendar.getInstance());

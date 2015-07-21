@@ -5,7 +5,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import medicamento.bean.MedicamentoBean;
-import medicamento.dao.MedicamentoDao;
 import medicamento.dao.MedicamentoDaoImpl;
 import medicamento.teste.TesteAlterar;
 import medicamento.teste.TesteExcluir;
@@ -384,9 +383,11 @@ public class JFCadastroMedicamentos extends javax.swing.JFrame {
 
     private void btExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExcluirActionPerformed
         MedicamentoDaoImpl pd = new MedicamentoDaoImpl();
+        MedicamentoBean medicamento = new MedicamentoBean();
+        medicamento.setCodigo(Integer.parseInt(campoCodigo.getText()));
 
         try {
-            pd.excluir(Integer.parseInt(campoCodigo.getText()));
+            pd.excluir(medicamento);
             JOptionPane.showMessageDialog(null, "Medicamento excluído com sucesso!", "Mensagem", JOptionPane.INFORMATION_MESSAGE);
         } catch (DaoException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao excluir medicamento!", "Mensagem", JOptionPane.INFORMATION_MESSAGE);
@@ -524,7 +525,7 @@ public class JFCadastroMedicamentos extends javax.swing.JFrame {
     private void cadastrar() {
         MedicamentoBean pb = populaProdutoBean();
 
-        MedicamentoDao produtoDao = new MedicamentoDao();
+        MedicamentoDaoImpl produtoDao = new MedicamentoDaoImpl();
         try {
             produtoDao.inserir(pb);
             JOptionPane.showMessageDialog(null, "Medicamento cadastrado com sucesso!", "Mensagem", JOptionPane.INFORMATION_MESSAGE);
@@ -548,7 +549,7 @@ public class JFCadastroMedicamentos extends javax.swing.JFrame {
         pd.setPrecoCompra(Float.parseFloat(campoPrecoCompra.getText()));
         pd.setQuantidadeEstoque(Integer.parseInt(campoQuantidadeEstoque.getText()));
 
-        MedicamentoDao produtoDao = new MedicamentoDao();
+        MedicamentoDaoImpl produtoDao = new MedicamentoDaoImpl();
 
         try {
             produtoDao.alterar(pd);
@@ -560,18 +561,19 @@ public class JFCadastroMedicamentos extends javax.swing.JFrame {
     }
     
     private void selecionar(Integer codigo){
-        MedicamentoDao produtoDao = new MedicamentoDao();
+        MedicamentoDaoImpl produtoDao = new MedicamentoDaoImpl();
 
         try {
-            MedicamentoBean produto = (MedicamentoBean) produtoDao.selecionar(codigo);
-            campoNome.setText(produto.getNome());
-            campoFormaFarmaceutica.setText(produto.getFormaFarmaceutica());
-            campoMarca.setText(produto.getMarca());
-            campoTipoMedicamento.setText(produto.getTipoMedicamento());
-            campoDescricao.setText(produto.getDescricao());
-            campoPrecoVenda.setText(produto.getPrecoVenda().toString());
-            campoPrecoCompra.setText(produto.getPrecoCompra().toString());
-            campoQuantidadeEstoque.setText(produto.getQuantidadeEstoque().toString());
+            MedicamentoBean medicamento = (MedicamentoBean) produtoDao.selecionar(codigo);
+            campoCodigo.setText(medicamento.getCodigo().toString());
+            campoNome.setText(medicamento.getNome());
+            campoFormaFarmaceutica.setText(medicamento.getFormaFarmaceutica());
+            campoMarca.setText(medicamento.getMarca());
+            campoTipoMedicamento.setText(medicamento.getTipoMedicamento());
+            campoDescricao.setText(medicamento.getDescricao());
+            campoPrecoVenda.setText(medicamento.getPrecoVenda().toString());
+            campoPrecoCompra.setText(medicamento.getPrecoCompra().toString());
+            campoQuantidadeEstoque.setText(medicamento.getQuantidadeEstoque().toString());
         } catch (DaoException ex) {
             Logger.getLogger(TesteSelecionar.class.getName()).log(Level.SEVERE, null, ex);
         }

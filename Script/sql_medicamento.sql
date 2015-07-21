@@ -1,10 +1,3 @@
-﻿CREATE TABLE usuarios (
-  codigo SERIAL,
-  usuario VARCHAR(50) NULL,
-  senha VARCHAR(50) NULL,
-  PRIMARY KEY(codigo)
-);
-
 CREATE TABLE medicamentos (
   codigo SERIAL,
   nome VARCHAR(50) NULL,
@@ -31,6 +24,20 @@ CREATE TABLE telefones (
   fornecedor_codigo INTEGER NOT NULL,
   ddd VARCHAR(50) NULL,
   numero VARCHAR(50) NULL,
+  PRIMARY KEY(codigo),
+  FOREIGN KEY(fornecedor_codigo)
+    REFERENCES fornecedores(codigo)
+      ON DELETE NO ACTION
+      ON UPDATE NO ACTION
+);
+
+CREATE TABLE enderecos (
+  codigo SERIAL,
+  fornecedor_codigo INTEGER NOT NULL,
+  logradouro VARCHAR(50) NULL,
+  numero VARCHAR(20) NULL,
+  bairro VARCHAR(50) NULL,
+  estado VARCHAR(20) NULL,
   PRIMARY KEY(codigo),
   FOREIGN KEY(fornecedor_codigo)
     REFERENCES fornecedores(codigo)

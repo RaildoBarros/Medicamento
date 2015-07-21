@@ -1,14 +1,38 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package medicamento.teste;
+
+import java.util.Calendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import medicamento.bean.MedicamentoBean;
+import medicamento.dao.MedicamentoDaoImpl;
+import util.DaoException;
 
 /**
  *
- * @author INCBV
+ * @author Raildo
  */
 public class TesteInsereOuAltera {
-    
+    public static void main(String[] args) {
+        MedicamentoBean medicamento = new MedicamentoBean();
+        
+        medicamento.setCodigo(1);
+        medicamento.setNome("Emoglobin");
+        medicamento.setFormaFarmaceutica("Comprimidos");
+        medicamento.setMarca("Aventis");
+        medicamento.setDataValidade(Calendar.getInstance());
+        medicamento.setTipoMedicamento("Original");
+        medicamento.setDescricao("Uso adulto e pediátrico");
+        medicamento.setPrecoVenda(80f);
+        medicamento.setPrecoCompra(80f);
+        medicamento.setQuantidadeEstoque(20);
+        
+        MedicamentoDaoImpl md = new MedicamentoDaoImpl();
+        
+        try {
+            md.inserir(medicamento);
+        } catch (DaoException ex) {
+            Logger.getLogger(TesteInserir.class.getName()).log(Level.SEVERE, null, ex);
+        }
+                 
+    }
 }

@@ -1,19 +1,24 @@
 package fornecedor.bean;
 
-import medicamento.bean.MedicamentoBean;
-import java.util.ArrayList;
+import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+import medicamento.bean.MedicamentoBean;
 
 /**
  *
  * @author Raildo
  */
-public class FornecedorBean {
+@Entity
+@Table(name = "fornecedores")
+public class FornecedorBean implements Serializable{
     
     @Id
     @Column(name = "codigo")
@@ -24,8 +29,9 @@ public class FornecedorBean {
     private String nome;
     @Column(name = "cnpj")
     private String cnpj;
-    @ManyToMany
-    private ArrayList<MedicamentoBean> medicamentos;
+    
+    
+//    private List<MedicamentoBean> medicamentos;
 
     public Integer getCodigo() {
         return codigo;
@@ -51,35 +57,12 @@ public class FornecedorBean {
         this.cnpj = cnpj;
     }
 
-    public ArrayList<MedicamentoBean> getMedicamentos() {
-        return medicamentos;
-    }
+//    public List<MedicamentoBean> getMedicamentos() {
+//        return medicamentos;
+//    }
+//
+//    public void setMedicamentos(List<MedicamentoBean> medicamentos) {
+//        this.medicamentos = medicamentos;
+//    }
 
-    public void setMedicamentos(ArrayList<MedicamentoBean> medicamentos) {
-        this.medicamentos = medicamentos;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 29 * hash + Objects.hashCode(this.codigo);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final FornecedorBean other = (FornecedorBean) obj;
-        if (!Objects.equals(this.codigo, other.codigo)) {
-            return false;
-        }
-        return true;
-    }
-    
-    
 }

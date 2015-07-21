@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
   <session-factory>
     <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
@@ -8,8 +8,8 @@
     <property name="hibernate.connection.username">postgres</property>
     <property name="hibernate.connection.password">postgre</property>
     <mapping class="medicamento.bean.MedicamentoBean"/>
-    <mapping class="usuario.bean.UsuarioBean"/>
     <mapping class="fornecedor.bean.FornecedorBean"/>
     <mapping class="telefone.bean.TelefoneBean"/>
+    <mapping class="endereco.bean.EnderecoBean"/>
   </session-factory>
 </hibernate-configuration>

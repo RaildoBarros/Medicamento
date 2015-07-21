@@ -4,7 +4,7 @@ import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import medicamento.bean.MedicamentoBean;
-import medicamento.dao.MedicamentoDao;
+import medicamento.dao.MedicamentoDaoImpl;
 import util.DaoException;
 
 /**
@@ -27,7 +27,7 @@ public class TesteAlterar {
         pd.setQuantidadeEstoque(20);
         
         
-        MedicamentoDao produtoDao = new MedicamentoDao();
+        MedicamentoDaoImpl produtoDao = new MedicamentoDaoImpl();
        
         try {
             produtoDao.alterar(pd);

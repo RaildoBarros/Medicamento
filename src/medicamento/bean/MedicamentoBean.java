@@ -2,13 +2,13 @@ package medicamento.bean;
 
 import java.io.Serializable;
 import java.util.Calendar;
-import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
 
 /**
  *
@@ -30,6 +30,7 @@ public class MedicamentoBean implements Serializable {
     @Column(name = "marca")
     private String marca;
     @Column(name = "data_validade")
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Calendar dataValidade;
     @Column(name = "tipo_medicamento")
     private String tipoMedicamento;
@@ -182,28 +183,4 @@ public class MedicamentoBean implements Serializable {
         this.precoCompra = precoCompra;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 3;
-        hash = 23 * hash + Objects.hashCode(this.codigo);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final MedicamentoBean other = (MedicamentoBean) obj;
-        if (!Objects.equals(this.codigo, other.codigo)) {
-            return false;
-        }
-        return true;
-    }
-
-    
-    
 }
